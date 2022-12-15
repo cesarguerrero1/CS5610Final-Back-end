@@ -10,12 +10,14 @@
 
 class AuthenticationController{
 
-    constructor(app){
+    constructor(app, userDao){
+
+        this.app = app;
+        this.userDao = userDao;
 
         //HTTP ENDPOINTS
-        
-    }
 
+    }
 
 }
 
