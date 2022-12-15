@@ -26,7 +26,7 @@ class AuthenticationController{
 
     //Check to see if a user is logged in
     profile(req, res){
-        profile = req.session['profile'];
+        let profile = req.session['profile'];
 
         if(profile){
             return res.json(profile);

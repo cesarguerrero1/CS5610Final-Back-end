@@ -7,6 +7,8 @@
  */
 
 import mongoose from "mongoose";
-import CocktailSchema from "./CocktailSchema";
+import CocktailSchema from "./CocktailSchema.js";
 
-export default CocktailModel = mongoose.model('CocktailModel', CocktailSchema);
+const CocktailModel = mongoose.model('CocktailModel', CocktailSchema);
+
+export default CocktailModel;

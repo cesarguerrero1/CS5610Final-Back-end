@@ -7,7 +7,7 @@
  */
 
 import mongoose from "mongoose";
-import alcoholEnum from "../alcoholEnum";
+import alcoholEnum from "../alcoholEnum.js";
 
 const CocktailSchema = new mongoose.Schema({
     createdBy: {type: mongoose.Schema.Types.ObjectId, ref: 'UserModel'},

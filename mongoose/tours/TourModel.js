@@ -7,6 +7,8 @@
  */
 
 import mongoose from "mongoose";
-import TourSchema from "./TourSchema";
+import TourSchema from "./TourSchema.js";
 
-export default TourModel = mongoose.model('TourModel', TourSchema);
+const TourModel = mongoose.model('TourModel', TourSchema);
+
+export default TourModel;

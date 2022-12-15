@@ -6,4 +6,6 @@
  * @file Enum for the types of alcohols
  */
 
-export default alcoholEnum = ["TEQUILA", "VODKA", "WHISKEY", "RUM", "GIN"]
+const alcoholEnum = ["TEQUILA", "VODKA", "WHISKEY", "RUM", "GIN"]
+
+export default alcoholEnum;

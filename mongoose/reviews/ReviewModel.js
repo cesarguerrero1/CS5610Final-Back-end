@@ -7,6 +7,8 @@
  */
 
 import mongoose from "mongoose";
-import ReviewSchema from "./ReviewSchema";
+import ReviewSchema from "./ReviewSchema.js";
 
-export default ReviewModel = mongoose.model('ReviewModel', ReviewSchema);
+const ReviewModel = mongoose.model('ReviewModel', ReviewSchema);
+
+export default ReviewModel;

@@ -11,8 +11,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-
-
 const app = express();
 app.use(express.json());
 
@@ -66,6 +64,7 @@ app.use(session(sess))
 //MONGO DATABASE
 const MONGO_USERNAME = process.env.MONGO_USERNAME;
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
+mongoose.set('strictQuery', true); //This is purely to suppress the deprecation warning
 mongoose.connect(`mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@cluster0.w5c0s1k.mongodb.net/mixologist?retryWrites=true&w=majority`);
 
 //Creating our DAOs

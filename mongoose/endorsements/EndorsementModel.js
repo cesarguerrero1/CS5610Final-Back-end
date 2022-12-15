@@ -7,6 +7,8 @@
  */
 
 import mongoose from "mongoose";
-import EndorsementSchema from "./EndorsementSchema";
+import EndorsementSchema from "./EndorsementSchema.js";
 
-export default EndorsementModel = mongoose.model('EndorsementModel', EndorsementSchema);
+const EndorsementModel = mongoose.model('EndorsementModel', EndorsementSchema);
+
+export default EndorsementModel;

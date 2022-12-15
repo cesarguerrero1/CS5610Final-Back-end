@@ -7,6 +7,8 @@
  */
 
 import mongoose from "mongoose";
-import PairingSchema from "./PairingSchema";
+import PairingSchema from "./PairingSchema.js";
 
-export default PairingModel = mongoose.model('PairingModel', PairingSchema);
+const PairingModel = mongoose.model('PairingModel', PairingSchema);
+
+export default PairingModel;
