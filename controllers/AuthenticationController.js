@@ -6,7 +6,9 @@
  * @file This controller will handle the authentication routes for our application
  */
 
-
+//We are going to use encryption to handle the passwords
+import bcrypt from "bcrypt";
+const saltRounds = 10;
 
 class AuthenticationController{
 
@@ -16,7 +18,54 @@ class AuthenticationController{
         this.userDao = userDao;
 
         //HTTP ENDPOINTS
+        this.app.post("/api/auth/profile", this.profile);
+        this.app.post("/api/auth/login", this.login);
+        this.app.post("/api/auth/logout", this.logout);
 
+    }
+
+    //Check to see if a user is logged in
+    profile(req, res){
+        profile = req.session['profile'];
+
+        if(profile){
+            return res.json(profile);
+        }else{
+            //403 Error means nothing exists
+            return res.sendStatus(403);
+        }
+    }
+
+    //Attempt to log the user in and thus create a session
+    async login(req, res){
+        //We need to see the credentials of the person attempting to login
+        const user = req.body;
+        const username = user.username;
+        const password = user.password;
+
+        //Look in our database to see if the given user exists
+        const existingUser = await this.userDao.findUserByUsername(username);
+
+        //If the user doesn't exist then ERROR!
+        if(!existingUser){
+            return res.sendStatus(403);
+        }
+        
+        //Check their password hash!
+        const match = await bcrypt.compare(password, existingUser.password);
+        if(match){
+            existingUser.password = "*****";
+            req.session['profile'] = existingUser;
+            return res.json(existingUser);
+        }else{
+            return res.sendStatus(403);
+        }
+    }
+
+    //Erase the current session as the user is logging out
+    logout(req, res){
+        req.session.destroy(() => {});
+        return res.sendStatus(200); 
     }
 
 }
