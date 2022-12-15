@@ -16,6 +16,6 @@ const TourSchema = new mongoose.Schema({
     drinkName: {type:String, default:"NA"},
     tourTitle: {type:String, default:""},
     tourBody: {type:String, default:""}
-})
+}, {collection: "tours"});
 
 export default TourSchema;

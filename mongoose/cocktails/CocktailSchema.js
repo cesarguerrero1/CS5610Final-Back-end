@@ -18,6 +18,6 @@ const CocktailSchema = new mongoose.Schema({
     ingredientsMeasurements: {type:[String], default:["ingredient1 Measurements", "ingredient2 Measurements", "ingredient3 Measurements", "ingredient4 Measurements", "ingredient5 Measurements"]},
     instructions: {type:String, default:"Instructions go here"},
     creationDate: {type:Date, default: Date.now}
-})
+}, {collection: "cocktails"});
 
 export default CocktailSchema;

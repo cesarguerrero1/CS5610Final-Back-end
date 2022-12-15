@@ -13,6 +13,6 @@ const ReviewSchema = new mongoose.Schema({
     author: {type: mongoose.Schema.Types.ObjectId, ref: 'UserModel'},
     comment: {type: String, default:''},
     postedDate: {type: Date, default:Date.now}
-})
+}, {collection: "reviews"});
 
 export default ReviewSchema;

@@ -20,6 +20,6 @@ const PairingSchema = new mongoose.Schema({
     creationDate: {type:Date, default: Date.now},
     pairingTitle: {type:String, default:""},
     pairingDescription: {type:String, default:""}
-})
+}, {collection: "pairings"});
 
 export default PairingSchema;
