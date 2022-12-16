@@ -7,7 +7,7 @@
  */
 
 import mongoose from "mongoose";
-import alcoholEnum from "../alcoholEnum";
+import alcoholEnum from "../alcoholEnum.js";
 
 const TourSchema = new mongoose.Schema({
     author: {type: mongoose.Schema.Types.ObjectId, ref: 'UserModel'},

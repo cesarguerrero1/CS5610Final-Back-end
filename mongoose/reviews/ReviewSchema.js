@@ -9,7 +9,7 @@
 import mongoose from "mongoose";
 
 const ReviewSchema = new mongoose.Schema({
-    cocktail: {type: mongoose.Schema.Types.ObjectId, ref: 'CocktailModel'},
+    cocktail: {type: mongoose.Schema.Types.ObjectId, ref: 'CocktailModel'} || {type:String, default:""},
     author: {type: mongoose.Schema.Types.ObjectId, ref: 'UserModel'},
     comment: {type: String, default:''},
     postedDate: {type: Date, default:Date.now}
