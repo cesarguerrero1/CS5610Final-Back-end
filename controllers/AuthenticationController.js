@@ -48,7 +48,6 @@ const AuthenticationController = (app) => {
         //Check their password hash!
         const match = await bcrypt.compare(password, existingUser.password);
         if(match){
-            existingUser.password = "*****";
             req.session['profile'] = existingUser;
             return res.json(existingUser);
         }else{
