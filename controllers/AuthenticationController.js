@@ -9,23 +9,17 @@
 //We are going to use encryption to handle the passwords
 import bcrypt from "bcrypt";
 const saltRounds = 10;
+import * as userDao from "../daos/UserDao.js";
 
-class AuthenticationController{
+const AuthenticationController = (app) => {
 
-    constructor(app, userDao){
-
-        this.app = app;
-        this.userDao = userDao;
-
-        //HTTP ENDPOINTS
-        this.app.post("/api/auth/profile", this.profile);
-        this.app.post("/api/auth/login", this.login);
-        this.app.post("/api/auth/logout", this.logout);
-
-    }
+    //HTTP ENDPOINTS
+    app.post("/api/auth/profile", profile);
+    app.post("/api/auth/login", login);
+    app.post("/api/auth/logout", logout);
 
     //Check to see if a user is logged in
-    profile(req, res){
+    function profile(req, res){
         let profile = req.session['profile'];
 
         if(profile){
@@ -37,14 +31,14 @@ class AuthenticationController{
     }
 
     //Attempt to log the user in and thus create a session
-    async login(req, res){
+    async function login(req, res){
         //We need to see the credentials of the person attempting to login
         const user = req.body;
         const username = user.username;
         const password = user.password;
 
         //Look in our database to see if the given user exists
-        const existingUser = await this.userDao.findUserByUsername(username);
+        const existingUser = await userDao.findUserByUsername(username);
 
         //If the user doesn't exist then ERROR!
         if(!existingUser){
@@ -63,7 +57,7 @@ class AuthenticationController{
     }
 
     //Erase the current session as the user is logging out
-    logout(req, res){
+    function logout(req, res){
         req.session.destroy(() => {});
         return res.sendStatus(200); 
     }

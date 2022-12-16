@@ -8,13 +8,7 @@
 
 
 
-class ReviewController{
-
-    constructor(app){
-
-        //HTTP ENDPOINTS
-        
-    }
+const ReviewController = (app) => {
 
 }
 

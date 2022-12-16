@@ -5,11 +5,3 @@
  * 
  * @file This DAO handles database access for the cocktails collection
  */
-
-
-
-class CocktailDao{
-
-}
-
-export default CocktailDao;

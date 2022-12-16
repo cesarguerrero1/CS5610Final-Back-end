@@ -5,11 +5,3 @@
  * 
  * @file This DAO handles database access for the reviews collection
  */
-
-
-
-class ReviewDao{
-
-}
-
-export default ReviewDao;

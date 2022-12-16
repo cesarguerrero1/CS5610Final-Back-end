@@ -8,13 +8,7 @@
 
 
 
-class PairingController{
-
-    constructor(app){
-
-        //HTTP ENDPOINTS
-        
-    }
+const PairingController = (app) => {
 
 }
 

@@ -8,13 +8,7 @@
 
 
 
-class EndorsementController{
-
-    constructor(app){
-
-        //HTTP ENDPOINTS
-        
-    }
+const EndorsementController = (app) => {
 
 }
 

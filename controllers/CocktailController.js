@@ -8,13 +8,7 @@
 
 
 
-class CocktailController{
-
-    constructor(app){
-
-        //HTTP ENDPOINTS
-        
-    }
+const CocktailController = (app) => {
 
 }
 

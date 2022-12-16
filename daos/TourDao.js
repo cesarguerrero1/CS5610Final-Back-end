@@ -5,11 +5,3 @@
  * 
  * @file This DAO handles database access for the tours collection
  */
-
-
-
-class TourDao{
-
-}
-
-export default TourDao;

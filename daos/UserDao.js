@@ -8,27 +8,22 @@
 
 import userModel from "../mongoose/users/UserModel.js";
 
-class UserDao{
-
-    async findAllUsers(){
-        return await userModel.find();
-    }
-
-    async findUserByUsername(username){
-        return await userModel.findOne({username:username});
-    }
-
-    async registerUser(user){
-        return await userModel.create(user);
-    }
-
-    async updateUser(uid, user){
-        return await userModel.updateOne({_id:uid}, {$set:user})
-    }
-
-    async deleteUser(uid){
-        return await userModel.deleteOne({_id:uid})
-    }
+export const findAllUsers = async() => {
+    return await userModel.find();
 }
 
-export default UserDao;
+export const findUserByUsername = async(username) => {
+    return await userModel.findOne({ username: username });
+}
+
+export const registerUser = async(user) =>{
+    return await userModel.create(user);
+}
+
+export const updateUser = async(uid, user) =>{
+    return await userModel.updateOne({ _id: uid }, { $set: user })
+}
+
+export const deleteUser = async(uid) => {
+    return await userModel.deleteOne({ _id: uid })
+}

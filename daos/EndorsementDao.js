@@ -6,10 +6,3 @@
  * @file This DAO handles database access for the endorsements collection
  */
 
-
-
-class EndorsementDao{
-
-}
-
-export default EndorsementDao;

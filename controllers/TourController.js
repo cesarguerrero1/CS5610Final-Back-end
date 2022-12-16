@@ -8,13 +8,7 @@
 
 
 
-class TourController{
-
-    constructor(app){
-
-        //HTTP ENDPOINTS
-        
-    }
+const TourController = (app) => {
 
 }
 
