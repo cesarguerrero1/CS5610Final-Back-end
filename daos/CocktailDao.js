@@ -12,6 +12,10 @@ export const findAllCocktails = async() => {
     return await cocktailModel.find().populate("createdBy").exec();
 }
 
+export const findMyCocktails = async(uid) => {
+    return await cocktailModel.find({createdBy:uid}).populate("createdBy").exec();
+}
+
 export const createCocktail = async(cocktail) => {
     return await cocktailModel.create(cocktail);
 }

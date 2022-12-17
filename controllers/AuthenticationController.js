@@ -19,10 +19,13 @@ const AuthenticationController = (app) => {
     app.post("/api/auth/logout", logout);
 
     //Check to see if a user is logged in
-    function profile(req, res){
+    async function profile(req, res){
         let profile = req.session['profile'];
-
+        
         if(profile){
+            //Grab the newest iteration! 
+            const user = await userDao.findUserByUsername(profile.username);
+            profile = user;
             return res.json(profile);
         }else{
             //403 Error means nothing exists

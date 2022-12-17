@@ -11,11 +11,17 @@ import * as cocktailDao from "../daos/CocktailDao.js"
 const CocktailController = (app) => {
 
     app.get('/cocktails', findAllCocktails);
+    app.get('/users/:uid/cocktails', findMyCocktails);
     app.post('/cocktails', createCocktail);
     app.delete('/cocktails/:cid', deleteCocktail);
 
     async function findAllCocktails(req, res){
         const cocktails = await cocktailDao.findAllCocktails();
+        return res.json(cocktails);
+    }
+
+    async function findMyCocktails(req, res){
+        const cocktails = await cocktailDao.findMyCocktails(req.params.uid);
         return res.json(cocktails);
     }
 
