@@ -12,6 +12,10 @@ export const findAllEndorsements = async() => {
     return await endorsementModel.find().populate("endorser").exec();
 }
 
+export const findAllMyEndorsements = async(uid) => {
+    return await endorsementModel.find({endorser:uid}).populate("endorser").exec();
+}
+
 export const createEndorsement = async(endorsement) => {
     return await endorsementModel.create(endorsement);
 }

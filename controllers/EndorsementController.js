@@ -11,11 +11,17 @@ import * as endorsementDao from "../daos/EndorsementDao.js"
 const EndorsementController = (app) => {
 
     app.get('/endorsements', findAllEndorsements);
+    app.get('users/:uid/endorsements', findAllMyEndorsements);
     app.post('/endorsements', createEndorsement);
     app.delete('/endorsements/:eid', deleteEndorsement);
 
     async function findAllEndorsements(req, res){
         const endorsements = await endorsementDao.findAllEndorsements();
+        return res.json(endorsements);
+    }
+
+    async function findAllMyEndorsements(req, res){
+        const endorsements = await endorsementDao.findAllMyEndorsements();
         return res.json(endorsements);
     }
 

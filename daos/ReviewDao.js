@@ -12,6 +12,10 @@ export const findAllReviews = async() => {
     return await reviewModel.find().populate("author").exec();
 }
 
+export const findAllMyReviews = async(uid) => {
+    return await reviewModel.find({author:uid}).populate("author").exec();
+}
+
 export const createReview = async(review) => {
     return await reviewModel.create(review);
 }

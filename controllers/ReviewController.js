@@ -19,6 +19,11 @@ const ReviewController = (app) => {
         return res.json(reviews);
     }
 
+    async function findAllMyReviews(req, res){
+        const reviews = await reviewDao.findAllMyReviews();
+        return res.json(reviews);
+    }
+
     async function createReview(req, res){
         const newReview = await reviewDao.createReview(req.body);
         return res.json(newReview);
