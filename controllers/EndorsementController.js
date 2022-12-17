@@ -21,7 +21,7 @@ const EndorsementController = (app) => {
     }
 
     async function findAllMyEndorsements(req, res){
-        const endorsements = await endorsementDao.findAllMyEndorsements();
+        const endorsements = await endorsementDao.findAllMyEndorsements(req.params.uid);
         return res.json(endorsements);
     }
 

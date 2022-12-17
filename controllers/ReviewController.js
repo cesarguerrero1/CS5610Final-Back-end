@@ -11,6 +11,7 @@ import * as reviewDao from "../daos/ReviewDao.js"
 const ReviewController = (app) => {
 
     app.get('/reviews', findAllReviews);
+    app.get('/users/:uid/reviews', findAllMyReviews);
     app.post('/reviews', createReview);
     app.delete('/reviews/:rid', deleteReview);
 
@@ -20,7 +21,7 @@ const ReviewController = (app) => {
     }
 
     async function findAllMyReviews(req, res){
-        const reviews = await reviewDao.findAllMyReviews();
+        const reviews = await reviewDao.findAllMyReviews(req.params.uid);
         return res.json(reviews);
     }
 
