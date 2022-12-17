@@ -11,7 +11,7 @@ import * as endorsementDao from "../daos/EndorsementDao.js"
 const EndorsementController = (app) => {
 
     app.get('/endorsements', findAllEndorsements);
-    app.get('users/:uid/endorsements', findAllMyEndorsements);
+    app.get('/users/:uid/endorsements', findAllMyEndorsements);
     app.post('/endorsements', createEndorsement);
     app.delete('/endorsements/:eid', deleteEndorsement);
 
